@@ -12,5 +12,8 @@ namespace WebApiConsultasMedicas
 
         public DbSet<Paciente> Paciente { get; set; }    
 
+        public DbSet<Medico> Medico { get; set; }
+
+        public DbSet<Consulta> Consulta { get; set; }
     }
 }

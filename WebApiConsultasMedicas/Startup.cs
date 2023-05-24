@@ -1,4 +1,6 @@
-﻿namespace WebApiConsultasMedicas
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace WebApiConsultasMedicas
 {
     public class Startup
     {
@@ -13,8 +15,13 @@
         {
             services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle    
+            services.AddDbContext<ApplicationDbContext>(options => 
+            options.UseSqlServer(Configuration.GetConnectionString("defaultConnection")));
             services.AddEndpointsApiExplorer();
-            services.AddSwaggerGen();
+            services.AddSwaggerGen( c =>
+            {
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo {Title = "ApiConsultasMedicas",Version = "v1"});
+            });
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
