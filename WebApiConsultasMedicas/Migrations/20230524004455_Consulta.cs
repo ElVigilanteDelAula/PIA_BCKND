@@ -17,9 +17,6 @@ namespace WebApiConsultasMedicas.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Fecha = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Sintomas = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Diagnostico = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Receta = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PacienteId = table.Column<int>(type: "int", nullable: false),
                     MedicoId = table.Column<int>(type: "int", nullable: false)
                 },
